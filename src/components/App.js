@@ -1,18 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ItemList from "./ItemList";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import ItemList from "./ItemList";
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <h1>Item Navigation System</h1>
-        <Routes>
-          <Route path="/" element={<ItemList />} />
-          <Route path="/item/:id" element={<ItemDetail />} />
-        </Routes>
-      </div>
+      <Switch>
+        <Route exact path="/" component={ItemList} />
+        <Route path="/item/:id" component={ItemDetail} />
+      </Switch>
     </Router>
   );
 };
